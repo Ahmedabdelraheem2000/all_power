@@ -49,4 +49,5 @@ class ApiHelper {
     return {'Accept': 'application/json',
       'X-Client-Device-Name': '${AppHelper.getDeviceName()}'};
   }
+
 }

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hire_me/controller/settings_controller.dart';
 import 'package:hire_me/controller/splash_controller.dart';
 import 'package:hire_me/utils/app_text.dart';
 import 'package:hire_me/utils/constants.dart';
 
 class SplashScreen extends GetView<SplashController> {
+  final SettingsController settingsController = Get.put(SettingsController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:hire_me/api/api_requestes.dart';
+import 'package:hire_me/model/settings.dart';
 import 'package:hire_me/routes/routes.dart';
 import 'package:hire_me/utils/app_helper.dart';
 

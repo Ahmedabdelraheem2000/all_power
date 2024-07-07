@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'dart:math';
 
-import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import 'package:hire_me/model/settings.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:hire_me/model/apply_job/apply_extra_job.dart';
@@ -321,6 +321,18 @@ class ApiRequests {
       return null;
     }
   }
+
+
+  Future<ApiResponse> fetchApiResponseSettings() async {
+    final response = await http.get(Uri.parse('http://new.allpower.info/api/setting'));
+
+    if (response.statusCode == 200) {
+      return ApiResponse.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to load data');
+    }
+  }
+
 
   static Future<ExtraSections?> getExtraSections(
       {required String language}) async {
