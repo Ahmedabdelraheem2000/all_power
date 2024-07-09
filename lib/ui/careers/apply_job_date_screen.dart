@@ -162,7 +162,7 @@ class ApplyExtraJobDateScreen extends StatelessWidget {
                   child: GetBuilder<ApplyJobController>(builder: (controller) => FutureBuilder(
                     future: _controller.getExtraJobs(sectionId: sectionId),
                     builder: (context, snapshot) {
-                      if(_controller.listExtraJobs.isNotEmpty){
+                      if(_controller.listExtraJobs.isNotEmpty || _controller.listExtraJobs== null){
                         return SingleChildScrollView(
                           physics: const BouncingScrollPhysics(),
                           child: Column(
@@ -229,6 +229,7 @@ class ApplyExtraJobDateScreen extends StatelessWidget {
     );
   }
 
+  //fixThis
   Widget buildDatesItem(ExtraJobData extraJob) => GetBuilder<ApplyJobController>(builder: (controller) => Card(
     margin: EdgeInsets.all(10),
     color: AppColors.lightGray6,
@@ -262,7 +263,12 @@ class ApplyExtraJobDateScreen extends StatelessWidget {
               text: '', fontWeight: FontWeight.w400),
           SizedBox(width: 10.r),
           AppText.medium(
-              text: '${extraJob.jobTitle}', fontWeight: FontWeight.w400)
+            text: extraJob.jobTitle == null || extraJob.jobTitle!.trim().isEmpty || extraJob.jobTitle.toString().length<=0
+                ? ''
+                : '${extraJob.jobTitle}',
+            fontWeight: FontWeight.w400,
+          )
+
         ],
       ),
     ),
